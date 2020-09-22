@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>中美军人对比</title>
+    <link rel="stylesheet" href="static/ys.css" >
+	<style type="text/css">
+	 h4 {background-color: #CAE1FF }
+	 h3 {background-color: #CAE1FF }
+	 .float
+	 {
+	 float: right;
+	 margin: 17px;}
+	 .aii
+	 {
+	     width: 300px;
+	     border: 50px double skyblue;
+	     padding: 25px;
+	     margin: 25px;
+		 overflow: scroll;}
+	}
+	 </style>
+</head>
+<body>
+<div class="nav">
+            <ul>
+                <li><a href="/">世界军费情况</a></li>
+                <li><a href="/zd_jf">高低收入国军费占比</a></li>
+                <li><a href="/zm_jr">中美军人对比</a></li>
+                <li><a href="/zm_jf">中美军费对比</a></li>
+            </ul>
+        </div>
+<div class="aii" style="width: 90%;">
+<form method="POST" action="/zd_jf_response">
+    <select name="the_jf_selected">
+        {% for item in the_select_jf %}
+            <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+    </select>
+<p><input value='选择' type='SUBMIT'></p>
+</form>
+<div style="width: 100%;">
+{{ the_plot_all|safe }}
+</div>
+<h3>图一为低收入国家的军费曲线，可以看到整体的曲线是曲折下降的，而图二中高收入国家的军费支出曲线是曲折上升的，这恐将造成高收入国家与低收入国家国际话语权的进一步拉大。</h3>
+{{ the_res|safe }}
+</div>
+</body>
+</html>

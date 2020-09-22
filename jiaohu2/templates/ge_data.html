@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>世界军费情况</title>
+    <link rel="stylesheet" href="static/ys.css" >
+	<style type="text/css">
+	 h4 {background-color: #CAE1FF }
+	 h3 {background-color: #CAE1FF }
+	 .float
+	 {
+	 float: right;
+	 margin: 17px;}
+	 .aii
+	 {
+	     width: 300px;
+	     border: 50px double skyblue;
+	     padding: 25px;
+	     margin: 25px;
+		 overflow: scroll;}
+	}
+	 </style>
+</head>
+<body>
+<div class="nav">
+            <ul>
+                <li><a href="/">世界军费情况</a></li>
+                <li><a href="/zd_jf">高低收入军费占比</a></li>
+                <li><a href="/zm_jr">中美军人对比</a></li>
+                <li><a href="/zm_jf">中美军费对比</a></li>
+            </ul>
+        </div>
+
+<div class="aii" style="width: 90%;">
+<form method="POST" action="/jf_response">
+    <select name="the_jf_selected">
+        {% for item in the_select_jf %}
+            <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+    </select>
+<p><input value='选择' type='SUBMIT'></p>
+</form>
+<div style="width: 100%;">
+{{ the_plot_all|safe }}
+</div>
+<h3 >军费的多寡是体现国家军事实力的外在表现，此图为自1998年以来军费（美元）地图，从世界军费地图上可以看出，美国军费长期领先各国，尤其在2002年后美国军费有了很大提升，而在2008年后中国的军费也有了极其明显的增长，但即使是如此，与美国依然有较大距离差距。</h3>
+<h3>图二为自1998年以来军费占GDP比重地图，军费占GDP比一直以来都是很重要的，判定军费使用是否正常的判定标准，一般正常的军费支出为2%~4%左右，其中军费占GDP比高的国家主要有非洲部分国家，中亚以及俄罗斯，中国仍然处于军费占GDP比较低的水平。而美国在2001年后军费占比逐步增加，尽管在之后一段时间内有所回落，军费支出依然高昂。</h3>
+{{ the_res|safe }}
+</div>
+</body>
+</html>
